@@ -6,13 +6,13 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/deepikagandla7456/Travel-Itinerary-Generator-Using-AI)]()
 [![GitHub last-commit](https://img.shields.io/github/last-commit/deepikagandla7456/Travel-Itinerary-Generator-Using-AI)]()
 
-deepikagandla7456/Travel-Itinerary-Generator-Using-AI
+
 <img title="Travel-Itinerary-Generator" align='right' src="/static/logo.png" alt="Travel Itinerary Generator Logo" width="150"/>
 
 Plan your dream trip effortlessly with the Travel Itinerary Generator Using AI! This powerful trip planner is your ultimate companion for crafting seamless travel experiences. Whether you're embarking on a road trip, city excursion, or overseas adventure, our tool simplifies the entire planning process.
 
 ## Sample:
-https://github.com/deepikagandla7456/Travel-Itinerary-Generator-Using-AI/assets/62820550/d55374a9-41bd-4454-8c2b-4f037b1f010b
+
 
 
 

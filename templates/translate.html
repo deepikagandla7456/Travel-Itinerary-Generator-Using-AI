@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Language Translator</title>
+    <style>
+        /* Centering using Flexbox */
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #e3f2fd; /* optional background color */
+}
+
+.container {
+  padding: 30px;
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+    <h2>Translate Your Text</h2>
+  
+    <form method="POST" action="/translate">
+        <label>Text:</label><br>
+        <textarea name="text" rows="4" cols="50" required>{{ request.form.text }}</textarea><br><br>
+
+        <label>From Language (e.g., en, fr, hi):</label><br>
+        <input type="text" name="src_lang" required value="{{ request.form.src_lang }}"><br><br>
+
+        <label>To Language (e.g., en, fr, hi):</label><br>
+        <input type="text" name="dest_lang" required value="{{ request.form.dest_lang }}"><br><br>
+
+        <input type="submit" value="Translate">
+    </form>
+
+    {% if translated_text %}
+        <h3>Original:</h3>
+        <p>{{ request.form.text }}</p>
+
+        <h3>Translated:</h3>
+        <p>{{ translated_text }}</p>
+    {% endif %}
+   </div>
+</body>
+</html>

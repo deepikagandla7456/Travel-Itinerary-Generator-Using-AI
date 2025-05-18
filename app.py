@@ -296,9 +296,3 @@ def page_not_found(e):
 @app.context_processor
 def inject_now():
     return {'now': datetime.datetime.now()}
-
-
-#if __name__ == "__main__":
-# app.run(debug=True)
-#_name_ == '_main_'
-#app.run(debug=True)

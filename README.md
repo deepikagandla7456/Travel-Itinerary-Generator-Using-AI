@@ -7,7 +7,7 @@
 [![GitHub last-commit](https://img.shields.io/github/last-commit/deepikagandla7456/Travel-Itinerary-Generator-Using-AI)]()
 
 
-<img title="Travel-Itinerary-Generator" align='right' src="/static/logo.png" alt="Travel Itinerary Generator Logo" width="150"/>
+<img title="Travel-Itinerary-Generator" align='right' src="/static/logo.png" alt="Travel Itinerary Generator Logo" width="250"/>
 
 Plan your dream trip effortlessly with the Travel Itinerary Generator Using AI! This powerful trip planner is your ultimate companion for crafting seamless travel experiences. Whether you're embarking on a road trip, city excursion, or overseas adventure, our tool simplifies the entire planning process.
 
@@ -16,13 +16,12 @@ Plan your dream trip effortlessly with the Travel Itinerary Generator Using AI! 
 Make your travel dreams a reality. Start planning your next adventure with the Travel Itinerary Generator today!
 </p>
 <p align="center">
-<i>Explore, discover, and make every trip unforgettable.*</i>
+<i>Explore, discover, and make every trip unforgettable.</i>
 </p>
 
 ## Table of Contents
 
 - [Travel Itinerary Generator Using AI](#travel-itinerary-generator-using-ai)
-  - [Sample:](#sample)
   - [Table of Contents](#table-of-contents)
   - [About](#about)
   - [Limitations \& Future Work](#limitations--future-work)
@@ -50,7 +49,7 @@ Travel Itinerary Generator Using AI is a computer program that empowers traveler
 
 - **Weather Forecast:** The Travel Itinerary Generator Using AI provides a weather forecast of the destination for the whole travel time.
 - **Travel Itinerary:** The Travel Itinerary Generator Using AI provides a travel itinerary for the whole travel time in an optimum budget.
-- **Translation Feature:** The Travel Itinerary Generator Using AI provides a translation feature to help users to communicate in the destination's language.
+- **Translation Feature:** The Travel Itinerary Generator Using AI includes a translation tool to help users to communicate in the local language of their destination
 ## Requirements
 
 - Python 3.11

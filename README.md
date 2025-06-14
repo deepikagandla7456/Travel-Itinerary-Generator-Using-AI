@@ -1,5 +1,5 @@
-# [Travel Itinerary Generator Using AI](#Travel-Itinerary-Generator-Using-AI)
-***
+# [Travel Itinerary Generator Using AI](#Travel-Itinerary-Generator-Using-AI)***
+
 
 [![GitHub license](https://img.shields.io/github/license/deepikagandla7456/Travel-Itinerary-Generator-Using-AI)](LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/deepikagandla7456/Travel-Itinerary-Generator-Using-AI)]()
@@ -41,6 +41,7 @@ Travel Itinerary Generator Using AI is a computer program that empowers traveler
 - The Travel Itinerary Generator works only based on the user's source and destination and time of travel.
 
 ***Future Work***
+
 - The Travel Itinerary Generator Using AI is not able to generate itineraries for multiple destinations.
 - The Travel Itinerary Generator Using AI is not able to suggest hotels and flights.
 - **Real-time Collaboration:** In an increasingly interconnected world, we plan to introduce real-time collaboration features. Users will be able to share their itineraries with travel companions or collaborators, making group travel planning an effortless and collaborative experience.
@@ -92,24 +93,26 @@ python wsgi.py
 ## Screenshots
 
 **Home Page of Travel Itinerary Generator without Login.**
-![image](https://github.com/deepikagandla7456/Travel-Itinerary-Generator-Using-AI/assets/62820550/a5e0f1c9-b0c4-4c1b-ba50-1a0b6c2a56bf)
-
+![Image](https://github.com/user-attachments/assets/1aaa448c-f401-4dfc-a5e7-a5aebe17586f)
 
 **Register Page / Sign Up**
-![image-1](https://github.com/deepikagandla7456/Travel-Itinerary-Generator-Using-AI/assets/62820550/2c2f90ff-c81d-48e6-a64f-ed71a1485cc8)
-
+![Image](https://github.com/user-attachments/assets/a466b3f9-0612-4ce0-b7ab-3551eb48e914)
 
 **Login Page**
-![image-2](https://github.com/deepikagandla7456/Travel-Itinerary-Generator-Using-AI/assets/62820550/7f50219b-546a-43d0-83bd-ca5d2262c261)
+![Image](https://github.com/user-attachments/assets/3afe9986-dcd2-4205-ad95-103cf5f0a1e4)
 
+**For Testing, I have taken Source Point as Hyderabad & Destination as Delhi, Starting Date of Journey: 16/05/2025, Return Date: 19/05/2025**
 
-**For Testing, I have taken Source Point as Hyderabad & Destination as Delhi, Starting Date of Journey: 25/05/2025, Return Date: 7/06/2025**
-![image-3](https://github.com/deepikagandla7456/Travel-Itinerary-Generator-Using-AI/assets/62820550/9b429e5a-722c-4d0c-ae39-b4e64440a34a)
+**Itinerary Page's**
+![Image](https://github.com/user-attachments/assets/4926ffd9-4f9e-480a-a055-9ff05b0519da)
 
+![Image](https://github.com/user-attachments/assets/b4e61169-e7c7-4b07-80d0-26e94373eabd)
 
-**Itinerary Page**
-![image-4](https://github.com/deepikagandla7456/Travel-Itinerary-Generator-Using-AI/assets/62820550/9f91a253-7ab8-4211-9b58-0a843cc66f0e)
+**Wheather Forecasting**
+![Image](https://github.com/user-attachments/assets/d5384d48-2864-456a-bbd5-04a3e70cb630)
 
+**Translation Feature**
+![Image](https://github.com/user-attachments/assets/69c6a29c-baab-432b-8e37-510e647801b0)
 
 ## License
 

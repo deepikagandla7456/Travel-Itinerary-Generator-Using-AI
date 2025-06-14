@@ -11,11 +11,6 @@
 
 Plan your dream trip effortlessly with the Travel Itinerary Generator Using AI! This powerful trip planner is your ultimate companion for crafting seamless travel experiences. Whether you're embarking on a road trip, city excursion, or overseas adventure, our tool simplifies the entire planning process.
 
-## Sample:
-
-
-
-
 
 <p align="center">
 Make your travel dreams a reality. Start planning your next adventure with the Travel Itinerary Generator today!

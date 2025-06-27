@@ -109,7 +109,7 @@ python wsgi.py
 
 ![Image](https://github.com/user-attachments/assets/b4e61169-e7c7-4b07-80d0-26e94373eabd)
 
-**Wheather Forecasting**
+**Wheather Forecast**
 ![Image](https://github.com/user-attachments/assets/d5384d48-2864-456a-bbd5-04a3e70cb630)
 
 **Translation Feature**

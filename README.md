@@ -102,6 +102,7 @@ python wsgi.py
 ![Image](https://github.com/user-attachments/assets/3afe9986-dcd2-4205-ad95-103cf5f0a1e4)
 
 **For Testing, I have taken Source Point as Hyderabad & Destination as Delhi, Starting Date of Journey: 16/05/2025, Return Date: 19/05/2025**
+![Image](https://github.com/user-attachments/assets/3fafff77-8e14-4e72-a37d-edd307223c29)
 
 **Itinerary Page's**
 ![Image](https://github.com/user-attachments/assets/4926ffd9-4f9e-480a-a055-9ff05b0519da)
@@ -112,7 +113,8 @@ python wsgi.py
 ![Image](https://github.com/user-attachments/assets/d5384d48-2864-456a-bbd5-04a3e70cb630)
 
 **Translation Feature**
-![Image](https://github.com/user-attachments/assets/69c6a29c-baab-432b-8e37-510e647801b0)
+![Image](https://github.com/user-attachments/assets/fdef4650-606b-466b-ac36-4673bfe655e0)
+
 
 ## License
 

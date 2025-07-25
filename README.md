@@ -63,7 +63,8 @@ Travel Itinerary Generator Using AI is a computer program that empowers traveler
 1. Clone the repository:
 
    ```shell
-   https://github.com/deepikagandla7456/Travel-Itinerary-Generator-Using-AI.git
+   git clone https://github.com/deepikagandla7456/Travel-Itinerary-Generator-Using-AI.git
+  
    cd Travel-Itinerary-Generator-Using-AI
 2. Install required packages:
 

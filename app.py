@@ -7,9 +7,9 @@ import requests
 import datetime
 import bard,os
 from dotenv import load_dotenv
-from googletrans import Translator, LANGUAGES
 from flask import Flask, render_template, request
-from googletrans import Translator
+from deep_translator import GoogleTranslator
+
 
 # Load the environment variables
 load_dotenv()
@@ -22,7 +22,6 @@ sitemapper = Sitemapper(app=app) # Create and initialize the sitemapper
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 app.secret_key = secret_key
-
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -38,7 +37,6 @@ class User(db.Model):
 
     def check_password(self, password):
         return bcrypt.checkpw(password.encode('utf8'), self.password.encode('utf8'))
-
 
 with app.app_context():
     db.create_all()
@@ -101,8 +99,6 @@ def get_weather_data(api_key: str, location: str, start_date: str, end_date: str
     except requests.exceptions.RequestException as e:
         print("Error:", e.__str__)
         
-
-
 @sitemapper.include() # Include the route in the sitemap
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -171,26 +167,24 @@ def contact():
 
     return render_template("contact.html", user_email=user_email, user_name=user_name, message=message)
 
-
 @sitemapper.include()
 @app.route("/translate", methods=["GET", "POST"])
 def translate():
     translated_text = ""
-    languages = LANGUAGES
+    languages = GoogleTranslator().get_supported_languages(as_dict=True)
+
     if request.method == "POST":
         text = request.form.get("text")
         src_lang = request.form.get("src_lang")
         dest_lang = request.form.get("dest_lang")
-        
+
         if text and src_lang and dest_lang:
             try:
-                translator = Translator()
-                translated = translator.translate(text, src=src_lang, dest=dest_lang)
-                translated_text = translated.text
+                translated_text = GoogleTranslator(source=src_lang, target=dest_lang).translate(text)
             except Exception as e:
-                flash("Translation failed. Please try again.", "danger")
-    return render_template("translate.html", translated_text=translated_text, languages=languages)
+                flash("Translation failed. Please check the language codes and try again.", "danger")
 
+    return render_template("translate.html", translated_text=translated_text)
 
 @sitemapper.include() # Include the route in the sitemap
 @app.route("/login", methods=["GET", "POST"])
@@ -269,8 +263,6 @@ def register():
     else:
         return render_template("register.html")
     
-
-
 # Robots.txt
 @app.route('/robots.txt')
 def robots():

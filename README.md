@@ -1,4 +1,4 @@
-# [Travel Itinerary Generator Using AI](https://routeweaver.onrender.com)
+# [Travel Itinerary Generator Using AI](https://deepikagandla7456.pythonanywhere.com/)
 
 
 [![GitHub license](https://img.shields.io/github/license/deepikagandla7456/Travel-Itinerary-Generator-Using-AI)](LICENSE)

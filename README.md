@@ -53,10 +53,10 @@ Travel Itinerary Generator Using AI is a computer program that empowers traveler
 - **Translation Feature:** The Travel Itinerary Generator Using AI includes a translation tool to help users to communicate in the local language of their destination
 ## Requirements
 
-- Python 3.11
+- Python 3.13
 - Flask
 - Flask-SQLAlchemy
-- google-generativeai==0.2.2
+- deep_translator
 
 ## Setup and Installation
 

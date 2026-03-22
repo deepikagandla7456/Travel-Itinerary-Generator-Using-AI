@@ -116,7 +116,6 @@ python wsgi.py
 **Translation Feature**
 ![Image](https://github.com/user-attachments/assets/fdef4650-606b-466b-ac36-4673bfe655e0)
 
-
 ## License
 
 This project is licensed under the [Apache License 2.0](LICENSE) - see the [LICENSE](LICENSE) file for details.

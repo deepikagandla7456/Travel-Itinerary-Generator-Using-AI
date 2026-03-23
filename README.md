@@ -91,7 +91,6 @@ Run the following command to start the application:
 ```shell
 python wsgi.py
 ```
-
 ## Screenshots
 
 **Home Page of Travel Itinerary Generator without Login.**

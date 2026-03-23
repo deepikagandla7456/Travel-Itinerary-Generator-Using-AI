@@ -1,53 +1,347 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Language Translator</title>
-    <style>
-        /* Centering using Flexbox */
-body {
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  background-color: #e3f2fd; /* optional background color */
-}
+{% extends "headers.html" %}
+{% block content %}
+<style>
+        :root {
+            --bg: radial-gradient(circle at 20% 20%, #f1f7ff, #d8ecff 45%, #cfe7ff 70%, #e5f4ff 100%);
+            --panel: #ffffff;
+            --border: #dce7f5;
+            --text: #0f1c3f;
+            --muted: #4c5a77;
+            --accent: #1677ff;
+            --accent-strong: #0f5fcc;
+            --shadow: 0 26px 80px rgba(15, 28, 63, 0.14);
+            --radius: 18px;
+            --soft: #f6f9ff;
+        }
 
-.container {
-  padding: 30px;
-  background-color: #fafafa;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-}
+        * { box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            font-family: 'Manrope', sans-serif;
+            color: var(--text);
+        }
+
+        main.page-shell {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 140px 24px 48px 24px;
+        }
+
+        .wrapper {
+            width: min(1180px, 96vw);
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 32px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .title {
+            margin: 6px 0 4px 0;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+            max-width: 640px;
+            line-height: 1.55;
+        }
+
+        .pill {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(22, 119, 255, 0.12);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.01em;
+        }
+
+        .form-card, .result-card {
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: calc(var(--radius) - 4px);
+            background: var(--soft);
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .hint {
+            margin: 0 0 14px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        textarea, select, input[type="text"] {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #fff;
+            font-size: 15px;
+            font-family: 'Manrope', sans-serif;
+            color: var(--text);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+        }
+
+        textarea:focus, select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.18);
+        }
+
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .t-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 12px;
+            align-items: end;
+        }
+
+        .select-wrap { position: relative; }
+        .select-wrap::after {
+            content: '▾';
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            pointer-events: none;
+            font-size: 12px;
+        }
+        select { appearance: none; -webkit-appearance: none; }
+
+        .chip-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 0 0; }
+        .chip {
+            border: 1px solid var(--border);
+            background: #fff;
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+        }
+        .chip:hover { border-color: var(--accent); color: var(--accent-strong); transform: translateY(-1px); }
+
+        .t-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 12px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        }
+
+        .t-btn:hover { background: var(--accent-strong); transform: translateY(-1px); }
+        .t-btn:active { transform: translateY(0); }
+
+        .t-ghost-btn {
+            background: #eef4ff;
+            color: var(--accent);
+            border: 1px solid rgba(22, 119, 255, 0.2);
+            padding: 10px 14px;
+            font-weight: 700;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .result-box {
+            min-height: 140px;
+            padding: 14px;
+            border-radius: 12px;
+            background: #fff;
+            border: 1px solid var(--border);
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text);
+            white-space: pre-wrap;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .empty-state { color: var(--muted); }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.6);
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @media (max-width: 900px) {
+            body { padding: 18px; }
+            .wrapper { grid-template-columns: 1fr; }
+            .row { grid-template-columns: 1fr; }
+            .header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
     </style>
 
+<main class="page-shell">
+    <section class="wrapper">
+        <div class="header">
+            <div>
+                <span class="pill">Fast bilingual translator</span>
+                <h1 class="title">Translate Your Text</h1>
+                <p class="subtitle">Drop in itinerary snippets or any note, auto-detect the source language, and get a clean translation without losing structure.</p>
+            </div>
+            <span class="pill" style="background: rgba(15, 28, 63, 0.08); color: var(--text);">Auto-detect enabled</span>
+        </div>
 
-</head>
-<body>
-    <div class="container">
-    <h2>Translate Your Text</h2>
-  
-    <form method="POST" action="/translate">
-        <label>Text:</label><br>
-        <textarea name="text" rows="4" cols="50" required>{{ request.form.text }}</textarea><br><br>
+        <section class="form-card">
+            <form id="translate-form" method="POST" action="/translate">
+                <label for="text">Text</label>
+                <p class="hint">Paste anything—from itinerary snippets to quick notes—and we will translate it instantly.</p>
+                <textarea id="text" name="text" required placeholder="Type or paste your text here">{{ text }}</textarea>
 
-        <label>From Language (e.g., en, fr, hi):</label><br>
-        <input type="text" name="src_lang" required value="{{ request.form.src_lang }}"><br><br>
+                <div class="t-row" style="margin-top:16px;">
+                    <div class="select-wrap">
+                        <label for="src_lang">From</label>
+                        <select id="src_lang" name="src_lang">
+                            <option value="auto" {% if src_lang == 'auto' %}selected{% endif %}>Auto-detect</option>
+                            {% for code, name in languages.items() %}
+                                <option value="{{ code }}" {% if src_lang == code %}selected{% endif %}>{{ name|title }} ({{ code }})</option>
+                            {% endfor %}
+                        </select>
+                        <div class="chip-row">
+                            <button type="button" class="chip" onclick="setLang('src_lang','auto')">Auto</button>
+                            <button type="button" class="chip" onclick="setLang('src_lang','en')">English</button>
+                            <button type="button" class="chip" onclick="setLang('src_lang','es')">Spanish</button>
+                        </div>
+                    </div>
+                    <div class="select-wrap">
+                        <label for="dest_lang">To</label>
+                        <select id="dest_lang" name="dest_lang" required>
+                            {% for code, name in languages.items() %}
+                                <option value="{{ code }}" {% if dest_lang == code %}selected{% endif %}>{{ name|title }} ({{ code }})</option>
+                            {% endfor %}
+                        </select>
+                        <div class="chip-row">
+                            <button type="button" class="chip" onclick="setLang('dest_lang','hi')">Hindi</button>
+                            <button type="button" class="chip" onclick="setLang('dest_lang','fr')">French</button>
+                            <button type="button" class="chip" onclick="setLang('dest_lang','de')">German</button>
+                        </div>
+                    </div>
+                    <button type="button" class="t-btn t-ghost-btn" onclick="swapLangs()">Swap</button>
+                </div>
 
-        <label>To Language (e.g., en, fr, hi):</label><br>
-        <input type="text" name="dest_lang" required value="{{ request.form.dest_lang }}"><br><br>
+                <div style="margin-top:18px; display:flex; gap:12px; flex-wrap: wrap; align-items: center;">
+                    <button type="submit" class="t-btn" id="translate-btn">
+                        <span id="btn-label">Translate</span>
+                        <span class="spinner" id="btn-spinner" style="display:none;"></span>
+                    </button>
+                    <button type="button" class="t-btn t-ghost-btn" onclick="clearText()">Clear</button>
+                    {% if translated_text %}
+                        <span class="pill" style="background: rgba(46, 204, 113, 0.12); color: #1c8c4c;">Translation complete ✓</span>
+                    {% endif %}
+                </div>
+            </form>
+        </section>
 
-        <input type="submit" value="Translate">
-    </form>
+        <section class="result-card">
+            <div class="result-header">
+                <h3 style="margin:0;">Original</h3>
+                <span class="pill" style="background: rgba(15, 28, 63, 0.08); color: var(--text);">{{ src_lang or '—' }}</span>
+            </div>
+            <div class="result-box">
+                {% if text %}
+                    {{ text }}
+                {% else %}
+                    <span class="empty-state">Your input text will appear here.</span>
+                {% endif %}
+            </div>
 
-    {% if translated_text %}
-        <h3>Original:</h3>
-        <p>{{ request.form.text }}</p>
+            <div class="result-header" style="margin-top:16px;">
+                <h3 style="margin:0;">Translated</h3>
+                <span class="pill" style="background: rgba(22, 119, 255, 0.12);">{{ dest_lang or '—' }}</span>
+            </div>
+            <div class="result-box" id="translated-box">
+                {% if translated_text %}
+                    {{ translated_text }}
+                {% else %}
+                    <span class="empty-state">Your translation will show up here after you hit Translate.</span>
+                {% endif %}
+            </div>
+        </section>
+    </section>
+</main>
 
-        <h3>Translated:</h3>
-        <p>{{ translated_text }}</p>
-    {% endif %}
-   </div>
-</body>
-</html>
+<script>
+        function swapLangs() {
+            const src = document.getElementById('src_lang');
+            const dest = document.getElementById('dest_lang');
+            const temp = src.value;
+            src.value = dest.value;
+            dest.value = temp;
+        }
+
+        function clearText() {
+            const textarea = document.getElementById('text');
+            textarea.value = '';
+            textarea.focus();
+        }
+
+        function setLang(selectId, value) {
+            const control = document.getElementById(selectId);
+            if (control) {
+                control.value = value;
+            }
+        }
+
+        document.getElementById('translate-form').addEventListener('submit', function() {
+            const btn = document.getElementById('translate-btn');
+            document.getElementById('btn-label').textContent = 'Translating…';
+            document.getElementById('btn-spinner').style.display = 'inline-block';
+            btn.disabled = true;
+        });
+    </script>
+{% endblock %}

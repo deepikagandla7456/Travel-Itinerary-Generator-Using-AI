@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_sitemapper import Sitemapper
@@ -173,18 +172,25 @@ def translate():
     translated_text = ""
     languages = GoogleTranslator().get_supported_languages(as_dict=True)
 
-    if request.method == "POST":
-        text = request.form.get("text")
-        src_lang = request.form.get("src_lang")
-        dest_lang = request.form.get("dest_lang")
+    # Preserve values across GET/POST for smoother UX
+    text = request.values.get("text", "")
+    src_lang = request.values.get("src_lang", "auto")
+    dest_lang = request.values.get("dest_lang", "hi")
 
-        if text and src_lang and dest_lang:
-            try:
-                translated_text = GoogleTranslator(source=src_lang, target=dest_lang).translate(text)
-            except Exception as e:
-                flash("Translation failed. Please check the language codes and try again.", "danger")
+    if request.method == "POST" and text and dest_lang:
+        try:
+            translated_text = GoogleTranslator(source=src_lang, target=dest_lang).translate(text)
+        except Exception:
+            flash("Translation failed. Please check the language selection and try again.", "danger")
 
-    return render_template("translate.html", translated_text=translated_text)
+    return render_template(
+        "translate.html",
+        translated_text=translated_text,
+        languages=languages,
+        text=text,
+        src_lang=src_lang,
+        dest_lang=dest_lang,
+    )
 
 @sitemapper.include() # Include the route in the sitemap
 @app.route("/login", methods=["GET", "POST"])

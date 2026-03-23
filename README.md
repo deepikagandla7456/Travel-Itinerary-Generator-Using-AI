@@ -74,7 +74,7 @@ Travel Itinerary Generator Using AI is a computer program that empowers traveler
 
 ## API Keys
 - Visual Crossing Weather API Key: [Sign up](https://www.visualcrossing.com/weather-api) for a free account and get your API key.
-- Google Palm API: [Sign up](https://makersuite.google.com) for a free account and get your API key.
+- Groq API Key: [Sign up](https://console.groq.com/keys) for a free account and get your API key.
 
 ## Usage
 - Please follow the instructions below to run the application locally.
@@ -82,7 +82,8 @@ Travel Itinerary Generator Using AI is a computer program that empowers traveler
 Write API keys: In a `.env` file.
 ```shell
 WEATHER_API_KEY='Your Visual Crossing Weather API Key'
-PALM_API_KEY='Your Google Palm API Key'
+SECRET_KEY='Your Flask secret key'
+GROQ_API_KEY='Your Groq API Key'
 ```
 and save it in the root directory of the project.
 

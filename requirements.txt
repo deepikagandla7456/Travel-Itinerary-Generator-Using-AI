@@ -12,14 +12,7 @@ colorama>=0.4.6
 Flask>=3.1.0
 flask-sitemapper
 Flask-SQLAlchemy>=3.1.1
-google-ai-generativelanguage>=0.3.3
-google-api-core>=2.12.0
-google-auth>=2.23.4
-google-generativeai
-googleapis-common-protos>=1.61.0
 greenlet>=3.0.0
-grpcio>=1.59.2
-grpcio-status>=1.59.2
 h11>=0.14.0
 idna>=3.7
 itsdangerous>=2.1.2

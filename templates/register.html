@@ -1,110 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "headers.html" %}
+{% block content %}
+<style>
+  body {
+    background: #e3f2fd;
+  }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Register Page</title>
+  .auth-card {
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9fd 100%);
+    border: 1px solid #e6edf7;
+    border-radius: 18px;
+    box-shadow: 0 20px 70px rgba(15, 28, 63, 0.08);
+    max-width: 1080px;
+    margin: 0 auto;
+    width: 100%;
+  }
+</style>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
-  <!-- MDB -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+<section class="text-center" style="margin-top: 100px; margin-bottom: 120px; padding: 24px 24px 30px; display: flex; justify-content: center;">
+  <div class="card mx-4 mx-md-5 auth-card">
+    <div class="card-body py-5 px-md-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-10 col-lg-8">
+          <h2 class="fw-bold mb-4">Register</h2>
+          <form action="/register" method="POST">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="container mb-3">
+              {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
 
-  <!-- This code block includes a link to the favicon. -->
-  <link rel="icon" href="{{ url_for('static',filename='logo.svg') }}" />
-  <style>
-    body {
-      background: linear-gradient(to right, #44579c 0%, #883893d2 100%), url('https://mdbootstrap.com/img/new/standard/city/044.jpg');
-    }
-  </style>
-</head>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Name" name="name" required />
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email address" name="email" required />
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" placeholder="Password" name="password" required />
+            </div>
+            <div class="mb-4">
+              <input type="password" class="form-control" placeholder="Confirm Password" name="password2" required />
+            </div>
 
-<body>
-
-
-  <!-- Section: Design Block -->
-  <section class="text-center">
-    <!-- Background image -->
-    <div class="px-md-4" style="
-        height: 300px;
-        
-        "></div>
-    <!-- Background image -->
-
-    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
-          margin-top: -100px;
-          background: hsla(0, 9%, 93%, 0.8);
-          backdrop-filter: blur(30px);
-        ">
-      <div class="card-body py-5 px-md-4">
-        <div class="row d-flex justify-content-center">
-          <div class="col-8">
-            <h2 class="fw-bold mb-5">Register</h2>
-            <form action="/register" method="POST">
-              <!-- Flash Messages Container -->
-      {% with messages = get_flashed_messages(with_categories=true) %} {% if
-        messages %}
-        <div class="container">
-          {% for category, message in messages %}
-          <div class="alert alert-{{ category }}">{{ message }}</div>
-          {% endfor %}
-        </div>
-        {% endif %} {% endwith %}
-              <!-- Name input -->
-              <div class=" mb-4">
-                <!-- <label class="form-label" for="form3Example1">Name:</label> -->
-                <input type="text" id="form3Example1" class="form-control" placeholder="Name" name="name" required />
-              </div>
-              <!-- Email input -->
-              <div class="mb-4">
-                <!-- <label class="form-label" for="form3Example3"
-                    >Email address:</label> -->
-                <input type="email" id="form3Example3" class="form-control" placeholder="Email address" name="email"
-                  required />
-              </div>
-
-              <!-- Password input -->
-              <div class="mb-4">
-                <!-- <label class="form-label" for="form3Example4">Password:</label> -->
-                <input type="password" id="form3Example4" class="form-control" placeholder="Password" name="password"
-                  required />
-
-                <!-- Confirm Password -->
-                <div class="py-3 mb-4">
-                  <!-- <label class="form-label" for="form3Example4">Confirm Password:</label> -->
-                  <input type="password" id="form3Example4" class="form-control" placeholder="Confirm Password"
-                    name="password2" required />
-                </div>
-
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-dark btn-block mb-4">Register</button>
-                <!-- Register link -->
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login"
-                    class="fw-bold text-body"><u>Login here</u></a></p>
-            </form>
-          </div>
+            <button type="submit" class="btn btn-dark btn-block mb-3">Register</button>
+            <p class="text-center text-muted mb-0">Have already an account? <a href="/login"
+                class="fw-bold text-body"><u>Login here</u></a></p>
+          </form>
         </div>
       </div>
     </div>
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+  </div>
+</section>
 
-    <script>
-      // Add this script to automatically hide flash messages after 5 seconds
+<!-- Footer -->
 
-      setTimeout(function () {
-        document.querySelectorAll(".alert").forEach(function (alert) {
-          alert.style.display = "none";
-        });
-      }, 5000); // Flash messages will disappear after 5 seconds (5000 milliseconds)
-    </script>
-</body>
+<footer
+  class="jumbotron text-center text-white fixed-bottom"
+  style="background-color: #030303"
+>
+  <div
+    class="text-center p-3"
+    style="background-color: rgba(255, 255, 255, 0)"
+  >
+    <p>&copy {{now.year}} All rights reserved</p>
+    <p>
+      Made with Passion by
+      <a style="color: #0ed9ddd6; text-decoration: none" href="#"
+        >Travel Itinerary Generator</a
+      >
+    </p>
+  </div>
+</footer>
 
-</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"></script>
+<script>
+  setTimeout(function () {
+    document.querySelectorAll(".alert").forEach(function (alert) {
+      alert.style.display = "none";
+    });
+  }, 5000);
+</script>
+{% endblock %}

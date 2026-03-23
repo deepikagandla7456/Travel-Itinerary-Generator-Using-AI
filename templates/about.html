@@ -1,14 +1,35 @@
 {% extends "headers.html" %}
 {% block content %}
 
+<style>
+  body { background: #e3f2fd; }
+  .about-shell {
+    padding: 24px 24px 30px;
+  }
+  .about-card {
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9fd 100%);
+    border: 1px solid #e6edf7;
+    border-radius: 18px;
+    box-shadow: 0 20px 70px rgba(15, 28, 63, 0.08);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 28px;
+  }
+  .about-image {
+    float: right;
+    width: 32%;
+    border-radius: 12px;
+    margin-left: 24px;
+  }
+</style>
+
 <!-- Main Content -->
-<main class="bg-light bg-gradient" style="margin-top: 0;">
-  <h2 class="display-1 text-center" style="margin-top: 145px;"> About Us</h2>
+<main class="about-shell">
+  <h2 class="display-1 text-center" style="margin-bottom: 32px;"> About Us</h2>
 
-  <div class="card border-primary" style="border-left-width: thick">
-
-    <div class="card-body">
-      <img src="{{url_for('static',filename='logo.svg')}}" class="img-fluid" alt="About Us" style="border-radius: 10px; float: right; width: 30%; height: 30%;"/>
+  <div class="about-card">
+    <div class="card-body p-0" style="font-size: 18px; line-height: 1.75; color: #0f1c3f;">
+      <img src="{{url_for('static',filename='logo.svg')}}" class="img-fluid about-image" alt="About Us" />
 
       <p class="card-text">
         Welcome to the Travel-Itinerary Generator, your go-to destination for
@@ -44,22 +65,24 @@
       </p>
     </div>
   </div>
- 
 </main>
-
 <!-- Footer -->
 
-<footer class="jumbotron text-center text-white fixed-bottom" style="background-color: #030303">
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(255, 255, 255, 0)">
+<footer
+  class="jumbotron text-center text-white fixed-bottom"
+  style="background-color: #030303"
+>
+  <div
+    class="text-center p-3"
+    style="background-color: rgba(255, 255, 255, 0)"
+  >
     <p>&copy {{now.year}} All rights reserved</p>
     <p>
-      Made with Passion by 
-      <a style="color: #0ed9ddd6; text-decoration: none" href="#">Travel Itinerary Generator</a>
+      Made with Passion by
+      <a style="color: #0ed9ddd6; text-decoration: none" href="#"
+        >Travel Itinerary Generator</a
+      >
     </p>
   </div>
 </footer>
 {% endblock %}
-</body>
-
-</html>

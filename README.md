@@ -95,27 +95,29 @@ python wsgi.py
 ## Screenshots
 
 **Home Page of Travel Itinerary Generator without Login.**
-![Image](https://github.com/user-attachments/assets/1aaa448c-f401-4dfc-a5e7-a5aebe17586f)
+![Image](https://github.com/user-attachments/assets/d4e9e71e-d68b-4e56-bc22-c5bda4aa4cc9)
 
 **Register Page / Sign Up**
-![Image](https://github.com/user-attachments/assets/a466b3f9-0612-4ce0-b7ab-3551eb48e914)
+![Image](https://github.com/user-attachments/assets/490fcab4-b7e6-455a-a604-76020fc3af40)
 
 **Login Page**
-![Image](https://github.com/user-attachments/assets/3afe9986-dcd2-4205-ad95-103cf5f0a1e4)
+![Image](https://github.com/user-attachments/assets/1940ae76-43d6-46d4-a135-fd219108c18f)
 
-**For Testing, I have taken Source Point as Hyderabad & Destination as Delhi, Starting Date of Journey: 16/05/2025, Return Date: 19/05/2025**
-![Image](https://github.com/user-attachments/assets/3fafff77-8e14-4e72-a37d-edd307223c29)
+**For Testing, I have taken Source Point as Hyderabad & Destination as Delhi, Starting Date of Journey: 25/03/2026, Return Date: 30/03/2026**
+![Image](https://github.com/user-attachments/assets/3099135c-96a5-4d89-85f7-cdff95672fb7)
 
 **Itinerary Page's**
-![Image](https://github.com/user-attachments/assets/4926ffd9-4f9e-480a-a055-9ff05b0519da)
+![Image](https://github.com/user-attachments/assets/20044f5b-4307-440e-bd27-b769dcbc8b7b)
 
-![Image](https://github.com/user-attachments/assets/b4e61169-e7c7-4b07-80d0-26e94373eabd)
+![Image](https://github.com/user-attachments/assets/58d1ab9c-9dcc-4244-a464-750f1de6acd3)
 
 **Wheather Forecast**
 ![Image](https://github.com/user-attachments/assets/d5384d48-2864-456a-bbd5-04a3e70cb630)
 
 **Translation Feature**
-![Image](https://github.com/user-attachments/assets/fdef4650-606b-466b-ac36-4673bfe655e0)
+![Image](https://github.com/user-attachments/assets/94547878-a72b-421f-aee9-4488173e75f6)
+
+![Image](https://github.com/user-attachments/assets/609fb1fb-96af-405d-ab79-c7664fb0702d)
 
 ## License
 
